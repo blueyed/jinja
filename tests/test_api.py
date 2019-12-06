@@ -1,29 +1,20 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.api
-    ~~~~~~~~~~~~~~~~~~~~
-
-    Tests the public API and related stuff.
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
 import os
 import tempfile
 import shutil
 from io import StringIO
 
 import pytest
-from jinja2 import Environment, Undefined, ChainableUndefined, \
+from jinja import Environment, Undefined, ChainableUndefined, \
      DebugUndefined, StrictUndefined, UndefinedError, meta, \
      is_undefined, Template, DictLoader, make_logging_undefined
-from jinja2 import TemplatesNotFound
-from jinja2.compiler import CodeGenerator
-from jinja2.runtime import Context
-from jinja2.utils import Cycler
-from jinja2.utils import contextfunction
-from jinja2.utils import evalcontextfunction
-from jinja2.utils import environmentfunction
+from jinja import TemplatesNotFound
+from jinja.compiler import CodeGenerator
+from jinja.runtime import Context
+from jinja.utils import Cycler
+from jinja.utils import contextfunction
+from jinja.utils import evalcontextfunction
+from jinja.utils import environmentfunction
 
 
 @pytest.mark.api
@@ -31,7 +22,7 @@ from jinja2.utils import environmentfunction
 class TestExtendedAPI(object):
 
     def test_item_and_attribute(self, env):
-        from jinja2.sandbox import SandboxedEnvironment
+        from jinja.sandbox import SandboxedEnvironment
 
         for env in Environment(), SandboxedEnvironment():
             # the |list is necessary for python3
@@ -168,7 +159,7 @@ class TestExtendedAPI(object):
         assert t.render(foo='<foo>') == '<foo>'
 
     def test_sandbox_max_range(self, env):
-        from jinja2.sandbox import SandboxedEnvironment, MAX_RANGE
+        from jinja.sandbox import SandboxedEnvironment, MAX_RANGE
 
         env = SandboxedEnvironment()
         t = env.from_string("{% for item in range(total) %}{{ item }}{% endfor %}")

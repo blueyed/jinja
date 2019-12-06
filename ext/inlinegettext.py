@@ -10,9 +10,9 @@
     :license: BSD.
 """
 import re
-from jinja2.ext import Extension
-from jinja2.lexer import Token, count_newlines
-from jinja2.exceptions import TemplateSyntaxError
+from jinja.ext import Extension
+from jinja.lexer import Token, count_newlines
+from jinja.exceptions import TemplateSyntaxError
 
 
 _outside_re = re.compile(r'\\?(gettext|_)\(')

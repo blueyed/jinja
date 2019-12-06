@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.optimizer
-    ~~~~~~~~~~~~~~~~
+    jinja.optimizer
+    ~~~~~~~~~~~~~~~
 
     The jinja optimizer is currently trying to constant fold a few expressions
     and modify the AST in place so that it should be easier to evaluate it.
@@ -16,8 +16,8 @@
     :copyright: (c) 2017 by the Jinja Team.
     :license: BSD.
 """
-from jinja2 import nodes
-from jinja2.visitor import NodeTransformer
+from jinja import nodes
+from jinja.visitor import NodeTransformer
 
 
 def optimize(node, environment):

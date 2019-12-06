@@ -1,23 +1,14 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.security
-    ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    Checks the sandbox and other security features.
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
 import pytest
 
-from jinja2 import Environment
-from jinja2.sandbox import SandboxedEnvironment, \
+from jinja import Environment
+from jinja.sandbox import SandboxedEnvironment, \
      ImmutableSandboxedEnvironment, unsafe
-from jinja2 import Markup, escape
-from jinja2.exceptions import SecurityError, TemplateSyntaxError, \
+from jinja import Markup, escape
+from jinja.exceptions import SecurityError, TemplateSyntaxError, \
      TemplateRuntimeError
-from jinja2.nodes import EvalContext
-from jinja2._compat import text_type
+from jinja.nodes import EvalContext
+from jinja._compat import text_type
 
 
 class PrivateStuff(object):

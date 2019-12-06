@@ -4,7 +4,7 @@ try:
 except ImportError:
     from profile import Profile
 from pstats import Stats
-from jinja2 import Environment as JinjaEnvironment
+from jinja import Environment as JinjaEnvironment
 
 context = {
     'page_title': 'mitsuhiko\'s benchmark',

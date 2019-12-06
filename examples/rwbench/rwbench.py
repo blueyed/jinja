@@ -23,8 +23,8 @@ ROOT = abspath(dirname(__file__))
 from random import choice, randrange
 from datetime import datetime
 from timeit import Timer
-from jinja2 import Environment, FileSystemLoader
-from jinja2.utils import generate_lorem_ipsum
+from jinja import Environment, FileSystemLoader
+from jinja.utils import generate_lorem_ipsum
 from mako.lookup import TemplateLookup
 from genshi.template import TemplateLoader as GenshiTemplateLoader
 

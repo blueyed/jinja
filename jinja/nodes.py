@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.nodes
-    ~~~~~~~~~~~~
+    jinja.nodes
+    ~~~~~~~~~~~
 
     This module implements additional nodes derived from the ast base node.
 
@@ -16,8 +16,8 @@ import types
 import operator
 
 from collections import deque
-from jinja2.utils import Markup
-from jinja2._compat import izip, with_metaclass, text_type, PY2
+from jinja.utils import Markup
+from jinja._compat import izip, with_metaclass, text_type, PY2
 
 
 _binop_to_func = {
@@ -879,7 +879,7 @@ class ExtensionAttribute(Expr):
     The identifier is the identifier of the :class:`Extension`.
 
     This node is usually constructed by calling the
-    :meth:`~jinja2.ext.Extension.attr` method on an extension.
+    :meth:`~jinja.ext.Extension.attr` method on an extension.
     """
     fields = ('identifier', 'name')
 
@@ -896,7 +896,7 @@ class ImportedName(Expr):
 class InternalName(Expr):
     """An internal name in the compiler.  You cannot create these nodes
     yourself but the parser provides a
-    :meth:`~jinja2.parser.Parser.free_identifier` method that creates
+    :meth:`~jinja.parser.Parser.free_identifier` method that creates
     a new identifier for you.  This identifier is not available from the
     template and is not threated specially by the compiler.
     """
@@ -937,7 +937,7 @@ class MarkSafeIfAutoescape(Expr):
 class ContextReference(Expr):
     """Returns the current template context.  It can be used like a
     :class:`Name` node, with a ``'load'`` ctx and will return the
-    current :class:`~jinja2.runtime.Context` object.
+    current :class:`~jinja.runtime.Context` object.
 
     Here an example that assigns the current template name to a
     variable named `foo`::
@@ -946,7 +946,7 @@ class ContextReference(Expr):
                Getattr(ContextReference(), 'name'))
 
     This is basically equivalent to using the
-    :func:`~jinja2.contextfunction` decorator when using the
+    :func:`~jinja.contextfunction` decorator when using the
     high-level API, which causes a reference to the context to be passed
     as the first argument to a function.
     """
@@ -1004,7 +1004,7 @@ class EvalContextModifier(Stmt):
 class ScopedEvalContextModifier(EvalContextModifier):
     """Modifies the eval context and reverts it later.  Works exactly like
     :class:`EvalContextModifier` but will only modify the
-    :class:`~jinja2.nodes.EvalContext` for nodes in the :attr:`body`.
+    :class:`~jinja.nodes.EvalContext` for nodes in the :attr:`body`.
     """
     fields = ('body',)
 

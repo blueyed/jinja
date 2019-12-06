@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.sandbox
-    ~~~~~~~~~~~~~~
+    jinja.sandbox
+    ~~~~~~~~~~~~~
 
     Adds a sandbox layer to Jinja as it was the default behavior in the old
     Jinja 1 releases.  This sandbox is slightly different from Jinja 1 as the
@@ -14,10 +14,10 @@
 """
 import types
 import operator
-from jinja2.environment import Environment
-from jinja2.exceptions import SecurityError
-from jinja2._compat import string_types, PY2, abc, range_type
-from jinja2.utils import Markup
+from jinja.environment import Environment
+from jinja.exceptions import SecurityError
+from jinja._compat import string_types, PY2, abc, range_type
+from jinja.utils import Markup
 
 from markupsafe import EscapeFormatter
 from string import Formatter
@@ -52,7 +52,7 @@ import warnings
 
 # make sure we don't warn in python 2.6 about stuff we don't care about
 warnings.filterwarnings('ignore', 'the sets module', DeprecationWarning,
-                        module='jinja2.sandbox')
+                        module='jinja.sandbox')
 
 from collections import deque
 
@@ -176,7 +176,7 @@ def is_internal_attribute(obj, attr):
     python objects.  This is useful if the environment method
     :meth:`~SandboxedEnvironment.is_safe_attribute` is overridden.
 
-    >>> from jinja2.sandbox import is_internal_attribute
+    >>> from jinja.sandbox import is_internal_attribute
     >>> is_internal_attribute(str, "mro")
     True
     >>> is_internal_attribute(str, "upper")

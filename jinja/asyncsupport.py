@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.asyncsupport
-    ~~~~~~~~~~~~~~~~~~~
+    jinja.asyncsupport
+    ~~~~~~~~~~~~~~~~~~
 
     Has all the code for async support which is implemented as a patch
     for supported Python versions.
@@ -13,12 +13,12 @@ import asyncio
 import inspect
 from functools import update_wrapper
 
-from jinja2.environment import TemplateModule
-from jinja2.runtime import LoopContext
-from jinja2.utils import concat
-from jinja2.utils import internalcode
-from jinja2.utils import Markup
-from jinja2.utils import missing
+from jinja.environment import TemplateModule
+from jinja.runtime import LoopContext
+from jinja.utils import concat
+from jinja.utils import internalcode
+from jinja.utils import Markup
+from jinja.utils import missing
 
 
 async def concat_async(async_gen):
@@ -137,7 +137,7 @@ async def make_module_async(self, vars=None, shared=False, locals=None):
 
 
 def patch_template():
-    from jinja2 import Template
+    from jinja import Template
     Template.generate = wrap_generate_func(Template.generate)
     Template.generate_async = update_wrapper(
         generate_async, Template.generate_async)
@@ -152,15 +152,15 @@ def patch_template():
 
 
 def patch_runtime():
-    from jinja2.runtime import BlockReference, Macro
+    from jinja.runtime import BlockReference, Macro
     BlockReference.__call__ = wrap_block_reference_call(
         BlockReference.__call__)
     Macro._invoke = wrap_macro_invoke(Macro._invoke)
 
 
 def patch_filters():
-    from jinja2.filters import FILTERS
-    from jinja2.asyncfilters import ASYNC_FILTERS
+    from jinja.filters import FILTERS
+    from jinja.asyncfilters import ASYNC_FILTERS
     FILTERS.update(ASYNC_FILTERS)
 
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.loaders
-    ~~~~~~~~~~~~~~
+    jinja.loaders
+    ~~~~~~~~~~~~~
 
     Jinja loader classes.
 
@@ -16,9 +16,9 @@ from importlib import import_module
 from types import ModuleType
 from os import path
 from hashlib import sha1
-from jinja2.exceptions import TemplateNotFound
-from jinja2.utils import open_if_exists, internalcode
-from jinja2._compat import string_types, iteritems, fspath, abc
+from jinja.exceptions import TemplateNotFound
+from jinja.utils import open_if_exists, internalcode
+from jinja._compat import string_types, iteritems, fspath, abc
 
 
 def split_template_path(template):
@@ -45,7 +45,7 @@ class BaseLoader(object):
     A very basic example for a loader that looks up templates on the file
     system could look like this::
 
-        from jinja2 import BaseLoader, TemplateNotFound
+        from jinja import BaseLoader, TemplateNotFound
         from os.path import join, exists, getmtime
 
         class MyLoader(BaseLoader):
@@ -517,7 +517,7 @@ class ModuleLoader(BaseLoader):
     has_source_access = False
 
     def __init__(self, path):
-        package_name = '_jinja2_module_templates_%x' % id(self)
+        package_name = '_jinja_module_templates_%x' % id(self)
 
         # create a fake module that looks for the templates in the
         # path given.

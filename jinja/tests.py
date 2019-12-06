@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.tests
-    ~~~~~~~~~~~~
+    jinja.tests
+    ~~~~~~~~~~~
 
     Jinja test functions. Used with the "is" operator.
 
@@ -10,8 +10,8 @@
 """
 import operator
 import re
-from jinja2.runtime import Undefined
-from jinja2._compat import text_type, string_types, integer_types, abc
+from jinja.runtime import Undefined
+from jinja._compat import text_type, string_types, integer_types, abc
 import decimal
 
 number_re = re.compile(r'^-?\d+(\.\d+)?$')

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.exceptions
-    ~~~~~~~~~~~~~~~~~
+    jinja.exceptions
+    ~~~~~~~~~~~~~~~~
 
     Jinja exceptions.
 
     :copyright: (c) 2017 by the Jinja Team.
     :license: BSD, see LICENSE for more details.
 """
-from jinja2._compat import imap, text_type, PY2, implements_to_string
+from jinja._compat import imap, text_type, PY2, implements_to_string
 
 
 class TemplateError(Exception):
@@ -58,7 +58,7 @@ class TemplateNotFound(IOError, LookupError, TemplateError):
         IOError.__init__(self, name)
 
         if message is None:
-            from jinja2.runtime import Undefined
+            from jinja.runtime import Undefined
 
             if isinstance(name, Undefined):
                 name._fail_with_undefined_error()
@@ -87,7 +87,7 @@ class TemplatesNotFound(TemplateNotFound):
 
     def __init__(self, names=(), message=None):
         if message is None:
-            from jinja2.runtime import Undefined
+            from jinja.runtime import Undefined
 
             parts = []
 

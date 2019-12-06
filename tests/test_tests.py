@@ -1,16 +1,7 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.tests
-    ~~~~~~~~~~~~~~~~~~~~~~
-
-    Who tests the tests?
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
 import pytest
 
-from jinja2 import Markup, Environment
+from jinja import Markup, Environment
 
 class MyDict(dict):
     pass

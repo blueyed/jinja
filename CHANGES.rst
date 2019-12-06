@@ -1,4 +1,4 @@
-.. currentmodule:: jinja2
+.. currentmodule:: jinja
 
 Version 2.11.0
 --------------
@@ -20,7 +20,7 @@ Unreleased
 -   Fix a bug causing deadlocks in ``LRUCache.setdefault``. :pr:`1000`
 -   The ``trim`` filter takes an optional string of characters to trim.
     :pr:`828`
--   A new ``jinja2.ext.debug`` extension adds a ``{% debug %}`` tag to
+-   A new ``jinja.ext.debug`` extension adds a ``{% debug %}`` tag to
     quickly dump the current context and available filters and tests.
     :issue:`174`, :pr:`798, 983`
 -   Lexing templates with large amounts of whitespace is much faster.
@@ -363,7 +363,7 @@ Released 2015-07-26, codename Replacement
     error. The previous behavior for this code was broken anyway
     (resulting in the default value being applied to ``y``).
 -   Add ability to use custom subclasses of
-    ``jinja2.compiler.CodeGenerator`` and ``jinja2.runtime.Context`` by
+    ``jinja.compiler.CodeGenerator`` and ``jinja.runtime.Context`` by
     adding two new attributes to the environment
     (``code_generator_class`` and ``context_class``) (pull request
     ``:issue:`404```).
@@ -707,13 +707,13 @@ Released 2008-07-17, codename Jinjavitus
     from slightly. It's now possible to give attributes or items a
     higher priority by either using dot-notation lookup or the bracket
     syntax. This also changed the AST slightly. ``Subscript`` is gone
-    and was replaced with :class:`~jinja2.nodes.Getitem` and
-    :class:`~jinja2.nodes.Getattr`. For more information see :ref:`the
+    and was replaced with :class:`~jinja.nodes.Getitem` and
+    :class:`~jinja.nodes.Getattr`. For more information see :ref:`the
     implementation details <notes-on-subscriptions>`.
 -   Added support for preprocessing and token stream filtering for
     extensions. This would allow extensions to allow simplified gettext
     calls in template data and something similar.
--   Added :meth:`jinja2.environment.TemplateStream.dump`.
+-   Added :meth:`jinja.environment.TemplateStream.dump`.
 -   Added missing support for implicit string literal concatenation.
     ``{{ "foo" "bar" }}`` is equivalent to ``{{ "foobar" }}``
 -   ``else`` is optional for conditional expressions. If not given it

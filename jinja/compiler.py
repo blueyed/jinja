@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.compiler
-    ~~~~~~~~~~~~~~~
+    jinja.compiler
+    ~~~~~~~~~~~~~~
 
     Compiles nodes into python code.
 
@@ -12,15 +12,15 @@ from collections import namedtuple
 from itertools import chain
 from keyword import iskeyword as is_python_keyword
 from functools import update_wrapper
-from jinja2 import nodes
-from jinja2.nodes import EvalContext
-from jinja2.visitor import NodeVisitor
-from jinja2.optimizer import Optimizer
-from jinja2.exceptions import TemplateAssertionError
-from jinja2.utils import Markup, concat, escape
-from jinja2._compat import range_type, text_type, string_types, \
+from jinja import nodes
+from jinja.nodes import EvalContext
+from jinja.visitor import NodeVisitor
+from jinja.optimizer import Optimizer
+from jinja.exceptions import TemplateAssertionError
+from jinja.utils import Markup, concat, escape
+from jinja._compat import range_type, text_type, string_types, \
      iteritems, NativeStringIO, imap, izip
-from jinja2.idtracking import Symbols, VAR_LOAD_PARAMETER, \
+from jinja.idtracking import Symbols, VAR_LOAD_PARAMETER, \
      VAR_LOAD_RESOLVE, VAR_LOAD_ALIAS, VAR_LOAD_UNDEFINED
 
 
@@ -699,12 +699,12 @@ class CodeGenerator(NodeVisitor):
         assert frame is None, 'no root frame allowed'
         eval_ctx = EvalContext(self.environment, self.name)
 
-        from jinja2.runtime import __all__ as exported
+        from jinja.runtime import __all__ as exported
         self.writeline('from __future__ import %s' % ', '.join(code_features))
-        self.writeline('from jinja2.runtime import ' + ', '.join(exported))
+        self.writeline('from jinja.runtime import ' + ', '.join(exported))
 
         if self.environment.is_async:
-            self.writeline('from jinja2.asyncsupport import auto_await, '
+            self.writeline('from jinja.asyncsupport import auto_await, '
                            'auto_aiter, AsyncLoopContext')
 
         # if we want a deferred initialization we cannot move the

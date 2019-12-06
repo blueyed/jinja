@@ -1,7 +1,7 @@
 from __future__ import print_function
-from jinja2 import Environment
+from jinja import Environment
 
-env = Environment(extensions=['jinja2.ext.i18n'])
+env = Environment(extensions=['jinja.ext.i18n'])
 env.globals['gettext'] = {
     'Hello %(user)s!': 'Hallo %(user)s!'
 }.__getitem__

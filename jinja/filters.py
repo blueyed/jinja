@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.filters
-    ~~~~~~~~~~~~~~
+    jinja.filters
+    ~~~~~~~~~~~~~
 
     Bundled jinja filters.
 
@@ -15,11 +15,11 @@ import warnings
 
 from itertools import groupby, chain
 from collections import namedtuple
-from jinja2.utils import Markup, escape, pformat, urlize, soft_unicode, \
+from jinja.utils import Markup, escape, pformat, urlize, soft_unicode, \
      unicode_urlencode, htmlsafe_json_dumps
-from jinja2.runtime import Undefined
-from jinja2.exceptions import FilterArgumentError
-from jinja2._compat import imap, string_types, text_type, iteritems, abc
+from jinja.runtime import Undefined
+from jinja.exceptions import FilterArgumentError
+from jinja._compat import imap, string_types, text_type, iteritems, abc
 
 
 _word_re = re.compile(r'\w+', re.UNICODE)
@@ -431,10 +431,10 @@ def do_default(value, default_value=u'', boolean=False):
         {{ ''|default('the string was empty', true) }}
 
     .. versionchanged:: 2.11
-       It's now possible to configure the :class:`~jinja2.Environment` with
-       :class:`~jinja2.ChainableUndefined` to make the `default` filter work
+       It's now possible to configure the :class:`~jinja.Environment` with
+       :class:`~jinja.ChainableUndefined` to make the `default` filter work
        on nested elements and attributes that may contain undefined values
-       in the chain without getting an :exc:`~jinja2.UndefinedError`.
+       in the chain without getting an :exc:`~jinja.UndefinedError`.
     """
     if isinstance(value, Undefined) or (boolean and not value):
         return default_value

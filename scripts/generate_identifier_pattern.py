@@ -62,10 +62,11 @@ def build_pattern(ranges):
 
 def main():
     """Build the regex pattern and write it to the file
-    :file:`jinja2/_identifier.py`."""
+    :file:`jinja/_identifier.py`.
+    """
     pattern = build_pattern(collapse_ranges(get_characters()))
     filename = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), '..', 'jinja2', '_identifier.py'
+        os.path.dirname(__file__), '..', 'jinja', '_identifier.py'
     ))
 
     with open(filename, 'w', encoding='utf8') as f:

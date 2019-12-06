@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.parser
-    ~~~~~~~~~~~~~
+    jinja.parser
+    ~~~~~~~~~~~~
 
     Implements the template parser.
 
     :copyright: (c) 2017 by the Jinja Team.
     :license: BSD, see LICENSE for more details.
 """
-from jinja2 import nodes
-from jinja2.exceptions import TemplateSyntaxError, TemplateAssertionError
-from jinja2.lexer import describe_token, describe_token_expr
-from jinja2._compat import imap
+from jinja import nodes
+from jinja.exceptions import TemplateSyntaxError, TemplateAssertionError
+from jinja.lexer import describe_token, describe_token_expr
+from jinja._compat import imap
 
 
 _statement_keywords = frozenset(['for', 'if', 'block', 'extends', 'print',
@@ -112,7 +112,7 @@ class Parser(object):
         return False
 
     def free_identifier(self, lineno=None):
-        """Return a new free identifier as :class:`~jinja2.nodes.InternalName`."""
+        """Return a new free identifier as :class:`~jinja.nodes.InternalName`."""
         self._last_identifier += 1
         rv = object.__new__(nodes.InternalName)
         nodes.Node.__init__(rv, 'fi%d' % self._last_identifier, lineno=lineno)
@@ -586,7 +586,7 @@ class Parser(object):
     def parse_tuple(self, simplified=False, with_condexpr=True,
                     extra_end_rules=None, explicit_parentheses=False):
         """Works like `parse_expression` but if multiple expressions are
-        delimited by a comma a :class:`~jinja2.nodes.Tuple` node is created.
+        delimited by a comma a :class:`~jinja.nodes.Tuple` node is created.
         This method could also return a regular expression instead of a tuple
         if no commas where found.
 

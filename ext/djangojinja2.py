@@ -24,8 +24,8 @@ from django.http import HttpResponse
 from django.core.exceptions import ImproperlyConfigured
 from django.template.context import get_standard_processors
 from django.template import TemplateDoesNotExist
-from jinja2 import Environment, FileSystemLoader, TemplateNotFound
-from jinja2.defaults import DEFAULT_NAMESPACE
+from jinja import Environment, FileSystemLoader, TemplateNotFound
+from jinja.defaults import DEFAULT_NAMESPACE
 
 
 # the environment is unconfigured until the first template is loaded.

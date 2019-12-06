@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.ext
-    ~~~~~~~~~~
+    jinja.ext
+    ~~~~~~~~~
 
     Jinja extensions allow adding custom tags and behavior. The
     following extensions are included:
@@ -18,18 +18,18 @@ import pprint
 import re
 from sys import version_info
 
-from jinja2 import nodes
-from jinja2.defaults import BLOCK_START_STRING, \
+from jinja import nodes
+from jinja.defaults import BLOCK_START_STRING, \
      BLOCK_END_STRING, VARIABLE_START_STRING, VARIABLE_END_STRING, \
      COMMENT_START_STRING, COMMENT_END_STRING, LINE_STATEMENT_PREFIX, \
      LINE_COMMENT_PREFIX, TRIM_BLOCKS, NEWLINE_SEQUENCE, \
      KEEP_TRAILING_NEWLINE, LSTRIP_BLOCKS
-from jinja2.environment import Environment
-from jinja2.nodes import ContextReference
-from jinja2.runtime import concat
-from jinja2.exceptions import TemplateAssertionError, TemplateSyntaxError
-from jinja2.utils import contextfunction, import_string, Markup
-from jinja2._compat import with_metaclass, string_types, iteritems
+from jinja.environment import Environment
+from jinja.nodes import ContextReference
+from jinja.runtime import concat
+from jinja.exceptions import TemplateAssertionError, TemplateSyntaxError
+from jinja.utils import contextfunction, import_string, Markup
+from jinja._compat import with_metaclass, string_types, iteritems
 from markupsafe import escape
 
 
@@ -95,10 +95,10 @@ class Extension(with_metaclass(ExtensionRegistry, object)):
         return source
 
     def filter_stream(self, stream):
-        """It's passed a :class:`~jinja2.lexer.TokenStream` that can be used
+        """It's passed a :class:`~jinja.lexer.TokenStream` that can be used
         to filter tokens returned.  This method has to return an iterable of
-        :class:`~jinja2.lexer.Token`\\s, but it doesn't have to return a
-        :class:`~jinja2.lexer.TokenStream`.
+        :class:`~jinja.lexer.Token`\\s, but it doesn't have to return a
+        :class:`~jinja.lexer.TokenStream`.
 
         In the `ext` folder of the Jinja source distribution there is a file
         called `inlinegettext.py` which implements a filter that utilizes this
@@ -127,7 +127,7 @@ class Extension(with_metaclass(ExtensionRegistry, object)):
     def call_method(self, name, args=None, kwargs=None, dyn_args=None,
                     dyn_kwargs=None, lineno=None):
         """Call a method of the extension.  This is a shortcut for
-        :meth:`attr` + :class:`jinja2.nodes.Call`.
+        :meth:`attr` + :class:`jinja.nodes.Call`.
         """
         if args is None:
             args = []
@@ -456,9 +456,9 @@ class DebugExtension(Extension):
 
     .. code-block:: text
 
-        {'context': {'cycler': <class 'jinja2.utils.Cycler'>,
+        {'context': {'cycler': <class 'jinja.utils.Cycler'>,
                      ...,
-                     'namespace': <class 'jinja2.utils.Namespace'>},
+                     'namespace': <class 'jinja.utils.Namespace'>},
          'filters': ['abs', 'attr', 'batch', 'capitalize', 'center', 'count', 'd',
                      ..., 'urlencode', 'urlize', 'wordcount', 'wordwrap', 'xmlattr'],
          'tests': ['!=', '<', '<=', '==', '>', '>=', 'callable', 'defined',
@@ -503,7 +503,7 @@ def extract_from_ast(node, gettext_functions=GETTEXT_FUNCTIONS,
 
     This example explains the behavior:
 
-    >>> from jinja2 import Environment
+    >>> from jinja import Environment
     >>> env = Environment()
     >>> node = env.parse('{{ (_("foo"), _(), ngettext("foo", "bar", 42)) }}')
     >>> list(extract_from_ast(node))

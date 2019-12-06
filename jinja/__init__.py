@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2
-    ~~~~~~
+    jinja
+    ~~~~~
 
     Jinja is a template engine written in pure Python.  It provides a
     Django inspired non-XML syntax but supports inline expressions and
@@ -30,30 +30,30 @@ __docformat__ = 'restructuredtext en'
 __version__ = "2.11.0.dev0"
 
 # high level interface
-from jinja2.environment import Environment, Template
+from jinja.environment import Environment, Template
 
 # loaders
-from jinja2.loaders import BaseLoader, FileSystemLoader, PackageLoader, \
+from jinja.loaders import BaseLoader, FileSystemLoader, PackageLoader, \
      DictLoader, FunctionLoader, PrefixLoader, ChoiceLoader, \
      ModuleLoader
 
 # bytecode caches
-from jinja2.bccache import BytecodeCache, FileSystemBytecodeCache, \
+from jinja.bccache import BytecodeCache, FileSystemBytecodeCache, \
      MemcachedBytecodeCache
 
 # undefined types
-from jinja2.runtime import Undefined, ChainableUndefined, DebugUndefined, \
+from jinja.runtime import Undefined, ChainableUndefined, DebugUndefined, \
      StrictUndefined, make_logging_undefined
 
 # exceptions
-from jinja2.exceptions import TemplateError, UndefinedError, \
+from jinja.exceptions import TemplateError, UndefinedError, \
      TemplateNotFound, TemplatesNotFound, TemplateSyntaxError, \
      TemplateAssertionError, TemplateRuntimeError
 
 # decorators and public utilities
-from jinja2.filters import environmentfilter, contextfilter, \
+from jinja.filters import environmentfilter, contextfilter, \
      evalcontextfilter
-from jinja2.utils import Markup, escape, clear_caches, \
+from jinja.utils import Markup, escape, clear_caches, \
      environmentfunction, evalcontextfunction, contextfunction, \
      is_undefined, select_autoescape
 

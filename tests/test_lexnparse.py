@@ -1,19 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.lexnparse
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    All the unittests regarding lexing, parsing and syntax.
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
 import pytest
 
-from jinja2 import Environment, Template, TemplateSyntaxError, \
+from jinja import Environment, Template, TemplateSyntaxError, \
      UndefinedError, nodes
-from jinja2._compat import iteritems, text_type, PY2
-from jinja2.lexer import Token, TokenStream, TOKEN_EOF, \
+from jinja._compat import iteritems, text_type, PY2
+from jinja.lexer import Token, TokenStream, TOKEN_EOF, \
      TOKEN_BLOCK_BEGIN, TOKEN_BLOCK_END
 
 
@@ -109,7 +100,7 @@ class TestLexer(object):
         assert tmpl.render() == pformat('foo') + '|' + pformat(u'bär')
 
     def test_operators(self, env):
-        from jinja2.lexer import operators
+        from jinja.lexer import operators
         for test, expect in iteritems(operators):
             if test in '([{}])':
                 continue

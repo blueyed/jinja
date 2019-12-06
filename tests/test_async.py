@@ -1,9 +1,9 @@
 import pytest
 import asyncio
 
-from jinja2 import Template, Environment, DictLoader
-from jinja2.asyncsupport import auto_aiter
-from jinja2.exceptions import TemplateNotFound, TemplatesNotFound, \
+from jinja import Template, Environment, DictLoader
+from jinja.asyncsupport import auto_aiter
+from jinja.exceptions import TemplateNotFound, TemplatesNotFound, \
      UndefinedError
 
 

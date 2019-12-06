@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.runtime
-    ~~~~~~~~~~~~~~
+    jinja.runtime
+    ~~~~~~~~~~~~~
 
     Runtime helpers.
 
@@ -13,12 +13,12 @@ import sys
 from itertools import chain
 from types import MethodType
 
-from jinja2.nodes import EvalContext
-from jinja2.utils import Markup, soft_unicode, escape, missing, concat, \
+from jinja.nodes import EvalContext
+from jinja.utils import Markup, soft_unicode, escape, missing, concat, \
      internalcode, object_type_repr, evalcontextfunction, Namespace
-from jinja2.exceptions import UndefinedError, TemplateRuntimeError, \
+from jinja.exceptions import UndefinedError, TemplateRuntimeError, \
      TemplateNotFound
-from jinja2._compat import imap, text_type, iteritems, \
+from jinja._compat import imap, text_type, iteritems, \
      implements_iterator, implements_to_string, string_types, PY2, \
      with_metaclass, abc
 
@@ -657,7 +657,7 @@ class Undefined(object):
     >>> foo + 42
     Traceback (most recent call last):
       ...
-    jinja2.exceptions.UndefinedError: 'foo' is undefined
+    jinja.exceptions.UndefinedError: 'foo' is undefined
     """
     __slots__ = ('_undefined_hint', '_undefined_obj', '_undefined_name',
                  '_undefined_exception')
@@ -832,7 +832,7 @@ class ChainableUndefined(Undefined):
     >>> foo.bar['baz'] + 42
     Traceback (most recent call last):
       ...
-    jinja2.exceptions.UndefinedError: 'foo' is undefined
+    jinja.exceptions.UndefinedError: 'foo' is undefined
 
     .. versionadded:: 2.11.0
     """
@@ -859,7 +859,7 @@ class DebugUndefined(Undefined):
     >>> foo + 42
     Traceback (most recent call last):
       ...
-    jinja2.exceptions.UndefinedError: 'foo' is undefined
+    jinja.exceptions.UndefinedError: 'foo' is undefined
     """
     __slots__ = ()
 
@@ -884,15 +884,15 @@ class StrictUndefined(Undefined):
     >>> str(foo)
     Traceback (most recent call last):
       ...
-    jinja2.exceptions.UndefinedError: 'foo' is undefined
+    jinja.exceptions.UndefinedError: 'foo' is undefined
     >>> not foo
     Traceback (most recent call last):
       ...
-    jinja2.exceptions.UndefinedError: 'foo' is undefined
+    jinja.exceptions.UndefinedError: 'foo' is undefined
     >>> foo + 42
     Traceback (most recent call last):
       ...
-    jinja2.exceptions.UndefinedError: 'foo' is undefined
+    jinja.exceptions.UndefinedError: 'foo' is undefined
     """
     __slots__ = ()
     __iter__ = __str__ = __len__ = __nonzero__ = __eq__ = \

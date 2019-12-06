@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.visitor
-    ~~~~~~~~~~~~~~
+    jinja.visitor
+    ~~~~~~~~~~~~~
 
     This module implements a visitor for the nodes.
 
     :copyright: (c) 2017 by the Jinja Team.
     :license: BSD.
 """
-from jinja2.nodes import Node
+from jinja.nodes import Node
 
 
 class NodeVisitor(object):

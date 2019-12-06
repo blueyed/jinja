@@ -1,17 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.inheritance
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    Tests the template inheritance feature.
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
 import pytest
 
-from jinja2 import Environment, DictLoader, TemplateError
-from jinja2 import TemplateRuntimeError
+from jinja import Environment, DictLoader, TemplateError
+from jinja import TemplateRuntimeError
 
 LAYOUTTEMPLATE = '''\
 |{% block block1 %}block 1 from layout{% endblock %}

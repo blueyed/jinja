@@ -11,13 +11,13 @@
 """
 from __future__ import print_function
 import sys
-import jinja2
+import jinja
 from werkzeug import script
 
-env = jinja2.Environment(extensions=['jinja2.ext.i18n', 'jinja2.ext.do',
-                                     'jinja2.ext.loopcontrols',
-                                     'jinja2.ext.with_',
-                                     'jinja2.ext.autoescape'],
+env = jinja.Environment(extensions=['jinja.ext.i18n', 'jinja.ext.do',
+                                     'jinja.ext.loopcontrols',
+                                     'jinja.ext.with_',
+                                     'jinja.ext.autoescape'],
                          autoescape=True)
 
 def shell_init_func():
@@ -29,8 +29,8 @@ def shell_init_func():
         't':        env.from_string,
         'p':        env.parse
     }
-    for key in jinja2.__all__:
-        result[key] = getattr(jinja2, key)
+    for key in jinja.__all__:
+        result[key] = getattr(jinja, key)
     return result
 
 

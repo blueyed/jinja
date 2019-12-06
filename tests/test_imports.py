@@ -1,17 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.imports
-    ~~~~~~~~~~~~~~~~~~~~~~~~
-
-    Tests the import features (with includes).
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
 import pytest
 
-from jinja2 import Environment, DictLoader
-from jinja2.exceptions import TemplateNotFound, TemplatesNotFound, \
+from jinja import Environment, DictLoader
+from jinja.exceptions import TemplateNotFound, TemplatesNotFound, \
     TemplateSyntaxError
 
 

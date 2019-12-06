@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.bccache
-    ~~~~~~~~~~~~~~
+    jinja.bccache
+    ~~~~~~~~~~~~~
 
     This module implements the bytecode cache system that Jinja optionally uses.
     This is useful if you have very complex template situations and
@@ -23,8 +23,8 @@ import marshal
 import tempfile
 import fnmatch
 from hashlib import sha1
-from jinja2.utils import open_if_exists
-from jinja2._compat import BytesIO, pickle, PY2, text_type
+from jinja.utils import open_if_exists
+from jinja._compat import BytesIO, pickle, PY2, text_type
 
 
 # marshal works better on 3.x, one hack less required
@@ -117,7 +117,7 @@ class Bucket(object):
 class BytecodeCache(object):
     """To implement your own bytecode cache you have to subclass this class
     and override :meth:`load_bytecode` and :meth:`dump_bytecode`.  Both of
-    these methods are passed a :class:`~jinja2.bccache.Bucket`.
+    these methods are passed a :class:`~jinja.bccache.Bucket`.
 
     A very basic bytecode cache that saves the bytecode on the file system::
 

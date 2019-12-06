@@ -35,7 +35,7 @@
         convert_templates('/path/to/output/folder', writer=writer)
 
     Here is an example hos to automatically translate your django
-    variables to jinja2::
+    variables to jinja::
 
         import re
         # List of tuple (Match pattern, Replace pattern, Exclusion pattern)
@@ -72,7 +72,7 @@ from __future__ import print_function
 import re
 import os
 import sys
-from jinja2.defaults import *
+from jinja.defaults import *
 from django.conf import settings
 from django.template import defaulttags as core_tags, loader, TextNode, \
      FilterExpression, libraries, Variable, loader_tags, TOKEN_TEXT, \

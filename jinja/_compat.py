@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2._compat
-    ~~~~~~~~~~~~~~
+    jinja._compat
+    ~~~~~~~~~~~~~
 
     Some py2/py3 compatibility support based on a stripped down
     version of six so we don't have to depend on a specific version

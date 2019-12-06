@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.lexer
-    ~~~~~~~~~~~~
+    jinja.lexer
+    ~~~~~~~~~~~
 
     This module implements a Jinja / Python combination lexer. The
     `Lexer` class provided by this module is used to do some preprocessing
@@ -19,9 +19,9 @@ from ast import literal_eval
 from collections import deque
 from operator import itemgetter
 
-from jinja2._compat import implements_iterator, intern, iteritems, text_type
-from jinja2.exceptions import TemplateSyntaxError
-from jinja2.utils import LRUCache
+from jinja._compat import implements_iterator, intern, iteritems, text_type
+from jinja.exceptions import TemplateSyntaxError
+from jinja.utils import LRUCache
 
 # cache for the lexers. Exists in order to be able to have multiple
 # environments with the same lexer
@@ -57,14 +57,14 @@ except SyntaxError:
 else:
     # Unicode support, build a pattern to match valid characters, and set flag
     # to use str.isidentifier to validate during lexing
-    from jinja2 import _identifier
+    from jinja import _identifier
     name_re = re.compile(r'[\w{0}]+'.format(_identifier.pattern))
     check_ident = True
     # remove the pattern from memory after building the regex
     import sys
-    del sys.modules['jinja2._identifier']
-    import jinja2
-    del jinja2._identifier
+    del sys.modules['jinja._identifier']
+    import jinja
+    del jinja._identifier
     del _identifier
 
 # internal the tokens and keep references to them
@@ -384,7 +384,7 @@ class TokenStream(object):
 
     def expect(self, expr):
         """Expect a given token type and return it.  This accepts the same
-        argument as :meth:`jinja2.lexer.Token.test`.
+        argument as :meth:`jinja.lexer.Token.test`.
         """
         if not self.current.test(expr):
             expr = describe_token_expr(expr)

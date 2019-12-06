@@ -6,7 +6,7 @@
 import sys
 import cgi
 from timeit import Timer
-from jinja2 import Environment as JinjaEnvironment
+from jinja import Environment as JinjaEnvironment
 
 context = {
     'page_title': 'mitsuhiko\'s benchmark',

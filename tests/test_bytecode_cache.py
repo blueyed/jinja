@@ -1,20 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.bytecode_cache
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    Test bytecode caching
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
-
 import pytest
 
-from jinja2 import Environment
-from jinja2.bccache import Bucket, FileSystemBytecodeCache, \
+from jinja import Environment
+from jinja.bccache import Bucket, FileSystemBytecodeCache, \
     MemcachedBytecodeCache
-from jinja2.exceptions import TemplateNotFound
+from jinja.exceptions import TemplateNotFound
 
 
 @pytest.fixture

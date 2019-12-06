@@ -1,19 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.conftest
-    ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    Configuration and Fixtures for the tests
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
 import pytest
 import os
 
-from jinja2 import loaders
-from jinja2.utils import have_async_gen
-from jinja2 import Environment
+from jinja import loaders
+from jinja.utils import have_async_gen
+from jinja import Environment
 
 
 def pytest_ignore_collect(path):

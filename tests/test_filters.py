@@ -1,17 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.filters
-    ~~~~~~~~~~~~~~~~~~~~~~~~
-
-    Tests for the jinja filters.
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
 import random
 import pytest
-from jinja2 import Markup, Environment
-from jinja2._compat import text_type, implements_to_string
+from jinja import Markup, Environment
+from jinja._compat import text_type, implements_to_string
 
 
 @implements_to_string

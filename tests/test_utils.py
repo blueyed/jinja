@@ -1,14 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-    jinja2.testsuite.utils
-    ~~~~~~~~~~~~~~~~~~~~~~
-
-    Tests utilities jinja uses.
-
-    :copyright: (c) 2017 by the Jinja Team.
-    :license: BSD, see LICENSE for more details.
-"""
-
 from collections import deque
 from copy import copy as shallow_copy
 import pickle
@@ -16,8 +6,8 @@ import random
 
 import pytest
 
-from jinja2._compat import string_types, range_type
-from jinja2.utils import LRUCache, object_type_repr, urlize, \
+from jinja._compat import string_types, range_type
+from jinja.utils import LRUCache, object_type_repr, urlize, \
      select_autoescape, generate_lorem_ipsum, missing, consume
 from markupsafe import Markup
 

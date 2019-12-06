@@ -1,7 +1,7 @@
 import sys
 import pytest
 
-from jinja2 import Template, Environment, contextfilter
+from jinja import Template, Environment, contextfilter
 
 
 @pytest.mark.skipif(sys.version_info < (3, 5),

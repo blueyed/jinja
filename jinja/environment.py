@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    jinja2.environment
-    ~~~~~~~~~~~~~~~~~~
+    jinja.environment
+    ~~~~~~~~~~~~~~~~~
 
     Provides a class that holds runtime and parsing time options.
 
@@ -12,23 +12,23 @@ import os
 import sys
 import weakref
 from functools import reduce, partial
-from jinja2 import nodes
-from jinja2.defaults import BLOCK_START_STRING, \
+from jinja import nodes
+from jinja.defaults import BLOCK_START_STRING, \
      BLOCK_END_STRING, VARIABLE_START_STRING, VARIABLE_END_STRING, \
      COMMENT_START_STRING, COMMENT_END_STRING, LINE_STATEMENT_PREFIX, \
      LINE_COMMENT_PREFIX, TRIM_BLOCKS, NEWLINE_SEQUENCE, \
      DEFAULT_FILTERS, DEFAULT_TESTS, DEFAULT_NAMESPACE, \
      DEFAULT_POLICIES, KEEP_TRAILING_NEWLINE, LSTRIP_BLOCKS
-from jinja2.lexer import get_lexer, TokenStream
-from jinja2.parser import Parser
-from jinja2.nodes import EvalContext
-from jinja2.compiler import generate, CodeGenerator
-from jinja2.runtime import Undefined, new_context, Context
-from jinja2.exceptions import TemplateSyntaxError, TemplateNotFound, \
+from jinja.lexer import get_lexer, TokenStream
+from jinja.parser import Parser
+from jinja.nodes import EvalContext
+from jinja.compiler import generate, CodeGenerator
+from jinja.runtime import Undefined, new_context, Context
+from jinja.exceptions import TemplateSyntaxError, TemplateNotFound, \
      TemplatesNotFound, TemplateRuntimeError, UndefinedError
-from jinja2.utils import import_string, LRUCache, Markup, missing, \
+from jinja.utils import import_string, LRUCache, Markup, missing, \
      concat, consume, internalcode, have_async_gen
-from jinja2._compat import imap, ifilter, string_types, iteritems, \
+from jinja._compat import imap, ifilter, string_types, iteritems, \
      text_type, reraise, implements_iterator, implements_to_string, \
      encode_filename, PY2, PYPY
 
@@ -189,7 +189,7 @@ class Environment(object):
         `autoescape`
             If set to ``True`` the XML/HTML autoescaping feature is enabled by
             default.  For more details about autoescaping see
-            :class:`~jinja2.utils.Markup`.  As of Jinja 2.4 this can also
+            :class:`~jinja.utils.Markup`.  As of Jinja 2.4 this can also
             be a callable that is passed the template name and has to
             return ``True`` or ``False`` depending on autoescape should be
             enabled by default.
@@ -233,7 +233,7 @@ class Environment(object):
 
     #: if this environment is sandboxed.  Modifying this variable won't make
     #: the environment sandboxed though.  For a real sandboxed environment
-    #: have a look at jinja2.sandbox.  This flag alone controls the code
+    #: have a look at jinja.sandbox.  This flag alone controls the code
     #: generation by the compiler.
     sandboxed = False
 
@@ -248,11 +248,11 @@ class Environment(object):
     shared = False
 
     #: the class that is used for code generation.  See
-    #: :class:`~jinja2.compiler.CodeGenerator` for more information.
+    #: :class:`~jinja.compiler.CodeGenerator` for more information.
     code_generator_class = CodeGenerator
 
     #: the context class thatis used for templates.  See
-    #: :class:`~jinja2.runtime.Context` for more information.
+    #: :class:`~jinja.runtime.Context` for more information.
     context_class = Context
 
     def __init__(self,
@@ -329,7 +329,7 @@ class Environment(object):
         self.enable_async = enable_async
         self.is_async = self.enable_async and have_async_gen
         if self.is_async:
-            import jinja2.asyncsupport  # runs patch_all() once
+            import jinja.asyncsupport  # runs patch_all() once
 
         _environment_sanity_check(self)
 
@@ -517,7 +517,7 @@ class Environment(object):
 
     def _tokenize(self, source, name, filename=None, state=None):
         """Called by the parser to do the preprocessing and filtering
-        for all the extensions.  Returns a :class:`~jinja2.lexer.TokenStream`.
+        for all the extensions.  Returns a :class:`~jinja.lexer.TokenStream`.
         """
         source = self.preprocess(source, name, filename)
         stream = self.lexer.tokenize(source, name, filename, state)
@@ -652,7 +652,7 @@ class Environment(object):
 
         .. versionadded:: 2.4
         """
-        from jinja2.loaders import ModuleLoader
+        from jinja.loaders import ModuleLoader
 
         if log_function is None:
             log_function = lambda x: None
@@ -750,10 +750,10 @@ class Environment(object):
         return x
 
     def handle_exception(self, source=None):
-        """Exception handling helper.  This is used internally to either raise
-        rewritten exceptions or return a rendered traceback for the template.
+        """Exception handling helper. This is used internally to reraise
+        rewritten exceptions.
         """
-        from jinja2.debug import rewrite_traceback_stack
+        from jinja.debug import rewrite_traceback_stack
         reraise(*rewrite_traceback_stack(source=source))
 
     def join_path(self, template, parent):
@@ -1157,7 +1157,7 @@ class TemplateModule(object):
 
 
 class TemplateExpression(object):
-    """The :meth:`jinja2.Environment.compile_expression` method returns an
+    """The :meth:`jinja.Environment.compile_expression` method returns an
     instance of this object.  It encapsulates the expression-like access
     to the template with an expression it wraps.
     """
