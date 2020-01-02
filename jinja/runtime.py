@@ -24,7 +24,7 @@ from jinja._compat import imap, text_type, iteritems, \
 
 
 # these variables are exported to the template runtime
-__all__ = ['LoopContext', 'TemplateReference', 'Macro', 'Markup',
+exported = ['LoopContext', 'TemplateReference', 'Macro', 'Markup',
            'TemplateRuntimeError', 'missing', 'concat', 'escape',
            'markup_join', 'unicode_join', 'to_string', 'identity',
            'TemplateNotFound', 'Namespace', 'Undefined']
@@ -35,9 +35,6 @@ to_string = text_type
 
 #: the identity function.  Useful for certain things in the environment
 identity = lambda x: x
-
-_first_iteration = object()
-_last_iteration = object()
 
 
 def markup_join(seq):

@@ -26,7 +26,6 @@
     :copyright: (c) 2017 by the Jinja Team.
     :license: BSD, see LICENSE for more details.
 """
-__docformat__ = 'restructuredtext en'
 __version__ = "2.11.0.dev0"
 
 # high level interface
@@ -56,17 +55,3 @@ from jinja.filters import environmentfilter, contextfilter, \
 from jinja.utils import Markup, escape, clear_caches, \
      environmentfunction, evalcontextfunction, contextfunction, \
      is_undefined, select_autoescape
-
-__all__ = [
-    'Environment', 'Template', 'BaseLoader', 'FileSystemLoader',
-    'PackageLoader', 'DictLoader', 'FunctionLoader', 'PrefixLoader',
-    'ChoiceLoader', 'BytecodeCache', 'FileSystemBytecodeCache',
-    'MemcachedBytecodeCache', 'Undefined', 'DebugUndefined',
-    'StrictUndefined', 'TemplateError', 'UndefinedError', 'TemplateNotFound',
-    'TemplatesNotFound', 'TemplateSyntaxError', 'TemplateAssertionError',
-    'TemplateRuntimeError',
-    'ModuleLoader', 'environmentfilter', 'contextfilter', 'Markup', 'escape',
-    'environmentfunction', 'contextfunction', 'clear_caches', 'is_undefined',
-    'evalcontextfilter', 'evalcontextfunction', 'make_logging_undefined',
-    'select_autoescape',
-]
