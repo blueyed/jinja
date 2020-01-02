@@ -1,5 +1,4 @@
 def _export_jinja(name, ns):
-    import re
     import warnings
     from importlib import import_module
 
@@ -21,7 +20,7 @@ def _export_jinja(name, ns):
         return
 
     for key, value in vars(mod).items():
-        if re.match(r".$|_?[^_]", key):
+        if not key.startswith("__") or key == "__version__":
             ns[key] = value
 
     if name:
