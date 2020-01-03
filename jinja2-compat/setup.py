@@ -48,7 +48,7 @@ setup(
     package_dir={"": "src"},
     packages=find_packages("src"),
     python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
-    install_requires=["Jinja<3"],
+    install_requires=["Jinja<4.0"],
     extras_require={"i18n": ["Babel>=0.8"]},
     entry_points={"babel.extractors": [
         "jinja2 = jinja2.ext:babel_extract[i18n]",

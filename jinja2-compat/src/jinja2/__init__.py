@@ -8,16 +8,7 @@ def _export_jinja(name, ns):
         DeprecationWarning,
         stacklevel=3,
     )
-
-    try:
-        mod = import_module(mod_name)
-    except ImportError:
-        warnings.warn(
-            "%r no longer exists. Either fully migrate to Jinja >= 3.0"
-            " or downgrade to an earlier version." % mod_name,
-            stacklevel=3,
-        )
-        return
+    mod = import_module(mod_name)
 
     for key, value in vars(mod).items():
         if not key.startswith("__") or key == "__version__":
